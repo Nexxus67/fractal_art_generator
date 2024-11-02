@@ -2,7 +2,6 @@ import numpy as np
 from PIL import Image
 import random
 
-# Generador de Mandelbrot
 def mandelbrot(width, height, x_min, x_max, y_min, y_max, max_iter):
     fractal = np.zeros((height, width))
     for i in range(width):
@@ -18,7 +17,6 @@ def mandelbrot(width, height, x_min, x_max, y_min, y_max, max_iter):
             fractal[j, i] = iteration
     return fractal
 
-# Generador de Julia
 def julia(width, height, x_min, x_max, y_min, y_max, max_iter, c_x, c_y):
     fractal = np.zeros((height, width))
     for i in range(width):
@@ -33,7 +31,6 @@ def julia(width, height, x_min, x_max, y_min, y_max, max_iter, c_x, c_y):
             fractal[j, i] = iteration
     return fractal
 
-# Generador de Burning Ship
 def burning_ship(width, height, x_min, x_max, y_min, y_max, max_iter):
     fractal = np.zeros((height, width))
     for i in range(width):
@@ -49,7 +46,6 @@ def burning_ship(width, height, x_min, x_max, y_min, y_max, max_iter):
             fractal[j, i] = iteration
     return fractal
 
-# Función principal para generar fractales
 def generate_fractal_choice():
     print("Seleccione el tipo de fractal a generar:")
     print("1: Mandelbrot")
@@ -73,11 +69,9 @@ def generate_fractal_choice():
         fractal = mandelbrot(800, 800, -2.0, 1.0, -1.5, 1.5, 256)
         filename = "fractal_mandelbrot.png"
 
-    # Escalar y guardar el fractal
     fractal_image = Image.fromarray(np.uint8(fractal * 255 / fractal.max()))
     fractal_image.save(filename)
     print(f"Imagen fractal generada y guardada como '{filename}'")
 
-# Ejecuta el generador de fractal con opción de usuario
 generate_fractal_choice()
 

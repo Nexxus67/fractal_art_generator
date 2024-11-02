@@ -1,4 +1,3 @@
-# extraer_mensaje.py
 import numpy as np
 from PIL import Image
 from cryptography.fernet import Fernet
@@ -19,12 +18,10 @@ def extract_message_from_image(image_path, message_length):
     message_bytes = [int(binary_message[i:i + 8], 2) for i in range(0, len(binary_message), 8)]
     return bytes(message_bytes)
 
-# Extraer clave y descifrar mensaje
 with open("clave.key", "rb") as f:
     key = f.read()
 cipher = Fernet(key)
 
-# Extraer mensaje y descifrarlo
 encrypted_message = extract_message_from_image("imagen_esteganografica.png", message_length=len(open("mensaje_cifrado.bin", "rb").read()))
 decrypted_message = cipher.decrypt(encrypted_message).decode()
 print("Mensaje recuperado:", decrypted_message)
