@@ -15,4 +15,5 @@ def apply_psychedelic_colors(image_path):
 
 apply_psychedelic_colors("fractal_base.png")
 apply_psychedelic_colors("fractal_burning_ship.png")
+apply_psychedelic_colors("fractal_julia.png")
 
